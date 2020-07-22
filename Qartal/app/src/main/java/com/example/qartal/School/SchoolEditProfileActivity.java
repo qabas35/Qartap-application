@@ -67,7 +67,7 @@ public class SchoolEditProfileActivity extends AppCompatActivity implements View
     private Uri filePath;
     private static final int PICK_IMAGE_REQUEST = 71 ;
     private static final int CAMERA_REQUEST_CODE = 1 ;
-    private ImageView profile_image;
+
 
     private StorageReference storageRef;
 
@@ -96,7 +96,6 @@ public class SchoolEditProfileActivity extends AppCompatActivity implements View
         findViewById(R.id.edit_password_school).setOnClickListener(this);
         findViewById(R.id.edit_phone_school).setOnClickListener(this);
         findViewById(R.id.back_to_home_btn_school).setOnClickListener(this);
-        profile_image = findViewById(R.id.profile_img_edit_school);
 
         firebaseInstance = FirebaseDatabase.getInstance();
         firebaseDatabase = firebaseInstance.getReference("SchoolInfo");
@@ -123,69 +122,9 @@ public class SchoolEditProfileActivity extends AppCompatActivity implements View
 
         name_view.setText(schoolInfo.NiceName);
 
-        schoolInfo.ImageBitmapStringValue = schoolUser.get(SchoolSessionManager.KEY_IMAGE);
-
-        schoolInfo.ImageProfileID = "image/"+ name.toLowerCase()
-                .replaceAll("'","").replaceAll(" ","_")+"_profile_img";
-
-        profile_image.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
-            @Override
-            public void onClick(View v) {
-                chooseImage();
-            }
-        });
-
-        if(schoolInfo.ImageBitmapStringValue == null) {
-            boolean ImageState_l = getImageFromFirebase();
-            if(!ImageState_l){
-                Drawable myDrawable = getResources().getDrawable(R.drawable.profile_edit_w);
-                profile_image.setImageDrawable(myDrawable);
-            }
-        }else {
-            Bitmap image_view_rec = SchoolSessionManager.decodeBase64(schoolInfo.ImageBitmapStringValue);
-            profile_image.setImageBitmap(image_view_rec);
-            Log.d("Image_str State : ",schoolInfo.ImageBitmapStringValue);
-
-        }
-
 
     }
 
-    private boolean getImageFromFirebase(){
-        // [START download_to_memory]
-        islandRef = storageRef.child(schoolInfo.ImageProfileID);
-
-        final long ONE_MEGABYTE = 1024 * 1024;
-        islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-            @Override
-            public void onSuccess(byte[] bytes) {
-                // Data for "images/island.jpg" is returns, use this as needed
-                Bitmap image = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                schoolInfo.ImageBitmapStringValue = image.toString();
-                profile_image.setImageBitmap(image);
-                schoolInfo.ImageState = true;
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle any errors
-                schoolInfo.ImageState = false;
-                Log.e("image_str Value State", String.valueOf(schoolInfo.ImageState));
-            }
-        });
-        return schoolInfo.ImageState;
-        // [END download_to_memory]
-    }
-
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
-    private void chooseImage(){
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"Select Picture"), PICK_IMAGE_REQUEST);
-    }
 
     void ReadNiceNameFromFirebase(){
         firebaseDatabase.addValueEventListener(new ValueEventListener() {
@@ -222,60 +161,14 @@ public class SchoolEditProfileActivity extends AppCompatActivity implements View
         });
     }
 
-    private void uploadImage(Uri image_path){
-        if(image_path != null){
-            final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("Upload Image ...");
-            progressDialog.show();
-
-            StorageReference ref = mStorageRef.child("image/"+ name.toLowerCase()
-                    .replaceAll("'","").replaceAll(" ","_")+"_profile_img");
-            ref.putFile(image_path).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    progressDialog.dismiss();
-                    Toast.makeText(getApplicationContext(),"Image Uploaded",Toast.LENGTH_LONG).show();
-
-                }
-            })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            progressDialog.dismiss();
-                            Toast.makeText(getApplicationContext(),"Image not Uploaded",Toast.LENGTH_LONG).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount() );
-                            progressDialog.setMessage("Uploaded " + (int)progress + "%");
-                        }
-                    });
-        }
-    }
+    
 
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null){
-            filePath = data.getData();
-            try {
 
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),filePath);
-                profile_image.setImageBitmap(bitmap);
-                String image_temp = SchoolSessionManager.encodeTobase64(bitmap);
-                session.createImageSession(image_temp,filePath.toString());
-                uploadImage(filePath);
-            }
-            catch (IOException ex){
-                ex.printStackTrace();
-            }
-
-        }
 
     }
 
