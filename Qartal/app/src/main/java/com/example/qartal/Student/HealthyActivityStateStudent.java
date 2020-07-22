@@ -17,7 +17,7 @@ public class HealthyActivityStateStudent extends AppCompatActivity implements Vi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health_state_student);
-        findViewById(R.id.go_back_student_profile).setOnClickListener(this);
+        findViewById(R.id.health_bake_to_profile).setOnClickListener(this);
 
         session = new StudentSessionManager(getApplicationContext());
         session.checkLogin();
@@ -27,7 +27,7 @@ public class HealthyActivityStateStudent extends AppCompatActivity implements Vi
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.go_back_student_profile: {
+            case R.id.health_bake_to_profile: {
                 Intent go = new Intent(HealthyActivityStateStudent.this, StudentProfileActivity.class);  //link two screens.
                 startActivity(go);
             }break;

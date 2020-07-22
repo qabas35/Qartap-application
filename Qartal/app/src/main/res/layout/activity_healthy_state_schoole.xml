@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_3"
-    tools:context=".Student.HealthyActivityStateStudent">
+    tools:context=".School.HealthStateSchoolActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="200dp"
+                android:layout_marginTop="10dp"
                 android:background="@android:color/white">
 
                 <!--  This is the main content -->
@@ -127,8 +127,6 @@
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
-
-
         </RelativeLayout>
 
         <LinearLayout
@@ -144,7 +142,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
-                app:srcCompat="@drawable/ic_arrow_left"
+                app:srcCompat="@drawable/ic_arrow_back_black_24dp"
                 tools:ignore="VectorDrawableCompat" />
 
         </LinearLayout>

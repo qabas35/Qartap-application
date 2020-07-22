@@ -19,20 +19,20 @@ public class HealthStateSchoolActivity extends AppCompatActivity implements View
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_health_state_student);
+        setContentView(R.layout.activity_healthy_state_schoole);
 
         session = new SchoolSessionManager(getApplicationContext());
 
         session.checkLogin();
 
-        findViewById(R.id.health_bake_to_profile).setOnClickListener(this);
+        findViewById(R.id.go_back_student_profile).setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.health_bake_to_profile : {
+            case R.id.go_back_student_profile : {
                 Intent go = new Intent(HealthStateSchoolActivity.this, SchoolMainProfileActivity.class);  //link two screens.
                 startActivity(go);
             }break;
