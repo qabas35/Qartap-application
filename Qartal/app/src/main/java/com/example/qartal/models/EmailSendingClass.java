@@ -26,8 +26,8 @@ public class EmailSendingClass {
         properties.put("mail.smtp.host","smtp.gmail.com");
         properties.put("mail.smtp.port","587");
 
-        final String MyEmil = "shtiatqabas@gmail.com";
-        final String Password = "qabas13021996q";
+        final String MyEmil = "qartalq012@gmail.com";
+        final String Password = "qartal123qartal";
 
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override
@@ -62,8 +62,8 @@ public class EmailSendingClass {
         properties.put("mail.smtp.host","smtp.gmail.com");
         properties.put("mail.smtp.port","587");
 
-        final String MyEmil = "shtiatqabas@gmail.com";
-        final String Password = "qabas13021996q";
+        final String MyEmil = "qartalq012@gmail.com";
+        final String Password = "qartal123qartal";
 
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override
