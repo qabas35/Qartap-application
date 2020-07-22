@@ -7,12 +7,12 @@
     tools:context=".School.StudentLocationActivity">
 
 
-<!--    <fragment-->
-<!--        android:id="@+id/map"-->
-<!--        android:name="com.google.android.gms.maps.MapFragment"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        tools:layout="@layout/activity_student_location"/>-->
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/activity_student_location"/>
 
 
     <LinearLayout
@@ -58,7 +58,7 @@
                         android:layout_width="25dp"
                         android:layout_height="23dp"
                         android:layout_margin="2dp"
-                        app:srcCompat="@drawable/map_logo"
+                        app:srcCompat="@drawable/qartal_logo"
                         tools:ignore="VectorDrawableCompat" />
 
                     <TextView
@@ -94,7 +94,7 @@
                 android:layout_margin="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_arrow_left"
+                app:srcCompat="@drawable/ic_arrow_back_black_24dp"
                 tools:ignore="VectorDrawableCompat" />
         </LinearLayout>
 
