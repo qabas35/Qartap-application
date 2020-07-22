@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".School.SchoolEditProfileActivity"
-    android:background="#5400BCD4">
+    android:background="#54F4F9FA">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
