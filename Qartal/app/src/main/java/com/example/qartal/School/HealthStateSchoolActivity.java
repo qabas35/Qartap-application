@@ -1,7 +1,9 @@
 package com.example.qartal.School;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +14,8 @@ public class HealthStateSchoolActivity extends AppCompatActivity implements View
 
     SchoolSessionManager session ;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,15 +25,17 @@ public class HealthStateSchoolActivity extends AppCompatActivity implements View
 
         session.checkLogin();
 
+        findViewById(R.id.health_bake_to_profile).setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
-//        switch (v.getId()){
-//            case R.id.go_back_school_profile_2 : {
-//                Intent go = new Intent(HealthStateSchoolActivity.this, SchoolMainProfileActivity.class);  //link two screens.
-//                startActivity(go);
-//            }break;
-//        }
+        switch (v.getId()){
+            case R.id.health_bake_to_profile : {
+                Intent go = new Intent(HealthStateSchoolActivity.this, SchoolMainProfileActivity.class);  //link two screens.
+                startActivity(go);
+            }break;
+        }
     }
 }
