@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1016923573123",
+    "firebase_url": "https://qartal-9a768.firebaseio.com",
+    "project_id": "qartal-9a768",
+    "storage_bucket": "qartal-9a768.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016923573123:android:731cde52f63bcb2eebc4b6",
+        "android_client_info": {
+          "package_name": "com.example.qartal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016923573123-3nvb9k1ocsmiljd9nkrrmmnorlkm648i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.qartal",
+            "certificate_hash": "f0477f2264f8d7606d920f2d9a7d6b15c0d75c07"
+          }
+        },
+        {
+          "client_id": "1016923573123-6rvhmseoo1tt2pke8ml83rgr1maranrg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWUzem1NRiRS50KGqVrB3NlNJiGKqPMcg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016923573123-6rvhmseoo1tt2pke8ml83rgr1maranrg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">Qartal</string>
+    // new
+
+    <string name="your_nickname_signout">Your nickname</string>
+    <string name="your_e_mail_signout">Your e-mail</string>
+    <string name="email_profil">Email</string>
+    <string name="setting_profile">Setting</string>
+    <string name="edit_setting">edit</string>
+    <string name="navigate_to_headline">Navigate to</string>
+    <string name="search_view_hint">search for a pleace or address</string>
+    <string name="school_nav_to">School</string>
+    <string name="home_nav_to">Home</string>
+    <string name="add_place_nav_to">Add Place</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="your_current_location">Your Current Location</string>
+    <string name="select_date_please">Select Date Please</string>
+    <string name="write_cause_of_non_attendence">Write cause of Non -Attendence</string>
+    <string name="confirm">Confirm</string>
+    <string name="add_new_member_re">Add New Member</string>
+    <string name="student_add_member">Student</string>
+    <string name="add_new_student_res">Add New Student</string>
+    <string name="user_id_add_student_res">User ID</string>
+    <string name="name_add_student_res">Full Name</string>
+    <string name="bus_number_add_student_res">Bus Number</string>
+    <string name="age_add_student_res">Age</string>
+    <string name="class_add_student">Class No</string>
+    <string name="blood_type_add_student_res">Blood Type</string>
+    <string name="generate_qr_code_add_student_res">Generate QR Code</string>
+    <string name="add_new_bus_add_bus_res">Add New Bus</string>
+    <string name="bus_add_bus_res">Bus</string>
+    <string name="plate_number_add_bus">Plate Number</string>
+    <string name="emergency_att_res">Emergency</string>
+    <string name="pleas_focus_on_qr_code_res">Pleas Focus on QR Code</string>
+    <string name="phone_add_new_student_res">Phone</string>
+    <string name="phone_add_bus_res">Phone</string>
+    <string name="no_place_selected">No Place Selected</string>
+    <string name="title_activity_maps2">Map</string>
+    <string name="name_edit_res">Your Name</string>
+    <string name="Save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="your_phone_edit_res">Your Phone</string>
+    <string name="your_email_edit_res">Your Email</string>
+    <string name="your_address_edit_res">Your Address</string>
+    <string name="loading_res">Loading ...</string>
+    <string name="old_password_res">Old Password</string>
+    <string name="new_password_res">New Password</string>
+    <string name="conform_password_res">Conform Password</string>
+    <string name="title_activity_school_profile2">SchoolProfileActivity2</string>
+    <string name="title_activity_school_main_profile">SchoolMainProfileActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="welcome_to_qartal">Welcome To Qartal</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="exit">Exit</string>
+
+</resources>

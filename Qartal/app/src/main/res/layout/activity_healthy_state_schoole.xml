@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_3"
+    tools:context=".Student.HealthyActivityStateStudent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/helth_logo_hrad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/ic_heart" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <SearchView
+                android:id="@+id/search_healthy_student"
+                style="@style/MySearchView"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_search"
+                android:pointerIcon="alias" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="200dp"
+                android:background="@android:color/white">
+
+                <!--  This is the main content -->
+                <RelativeLayout
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/txtbox_shape_helt_student"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+
+                <!--  This is the title label -->
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:padding="5dp"
+                    android:text="@string/emergency_att_res"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="#1FBFA2"
+                    android:textStyle="bold"/>
+
+            </RelativeLayout>
+
+
+
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/progressBar1"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:indeterminateDrawable="@drawable/circle_shape_helt_student" />
+
+            <ImageView
+                android:layout_width="66dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="172dp"
+                android:src="@drawable/heart_70" />
+
+            <TextView
+                android:id="@+id/health_counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="195dp"
+                android:layout_marginTop="95dp"
+                android:text="255"
+                android:textColor="#1FBFA2" />
+
+            <TextView
+                android:id="@+id/health_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="113dp"
+                android:layout_marginEnd="194dp"
+                android:text="bad"
+                android:textColor="#ce7c26"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_marginTop="13dp"
+            app:layout_constraintTop_toBottomOf="@+id/profil_menu"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/go_back_student_profile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                app:srcCompat="@drawable/ic_arrow_left"
+                tools:ignore="VectorDrawableCompat" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
