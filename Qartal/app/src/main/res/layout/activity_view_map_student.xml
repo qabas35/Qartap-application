@@ -15,12 +15,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="-6dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="0dp"
         android:orientation="vertical">
 
@@ -28,6 +28,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/bus_map_logo"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/view_map_logo" />
 
         </LinearLayout>
 
@@ -81,7 +89,7 @@
         <LinearLayout
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginTop="80dp"
             android:orientation="vertical">
 
 
@@ -89,22 +97,12 @@
                 android:id="@+id/go_back_profile_to2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 app:srcCompat="@drawable/ic_arrow_back_black_24dp"
                 tools:ignore="VectorDrawableCompat" />
         </LinearLayout>
 
-    </LinearLayout>
 
-    <ImageView
-        android:id="@+id/bus_map_logo"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="33dp"
-        app:srcCompat="@drawable/view_map_logo" />
+    </LinearLayout>
 
 
 </RelativeLayout>
