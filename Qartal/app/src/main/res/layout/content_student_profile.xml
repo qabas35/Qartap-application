@@ -116,7 +116,7 @@
             <RelativeLayout style="@style/profileDetailsLayout">
                 <ImageView
                     android:id="@+id/addressImageView_student"
-                    android:src="@drawable/location_nav_to"
+                    android:src="@drawable/ic_baseline_place_24"
                     style="@style/profileDetailsImage" />
 
                 <TextView
