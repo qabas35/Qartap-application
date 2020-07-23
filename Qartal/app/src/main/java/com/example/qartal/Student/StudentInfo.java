@@ -2,6 +2,8 @@ package com.example.qartal.Student;
 
 import android.graphics.Bitmap;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class StudentInfo {
@@ -17,6 +19,8 @@ public class StudentInfo {
     public String ImageProfileID;
     public String ImageBitmapStringValue;
     public boolean ImageState = false;
+    public String HealthState;
+    public List<Integer> HeartBeat  = new ArrayList<Integer>();
 
     public StudentInfo(){
 
