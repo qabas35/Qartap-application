@@ -55,8 +55,6 @@ public class HealthStateSchoolActivity extends AppCompatActivity implements View
         health_viewer_1 = findViewById(R.id.coming_health_value);
 
 
-
-
         healthRef = FirebaseDatabase.getInstance().getReference();
         healthRef.addValueEventListener(new ValueEventListener() {
             @Override

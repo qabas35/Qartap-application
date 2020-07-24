@@ -127,28 +127,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="For"
-                            android:textColor="#ffffff"
-                            android:textSize="18dp" />
-
-                        <Spinner
-                            android:id="@+id/spinner1"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
-                            android:background="@android:drawable/btn_dropdown"
-                            android:spinnerMode="dropdown" />
-                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -157,7 +136,17 @@
                         android:layout_weight="1"
                         android:orientation="horizontal">
 
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/personal_img_backgraound"
+                            android:padding="7dp"
+                            android:src="@drawable/ic_person_outline_black_24dp" />
+
                         <TextView
+                            android:id="@+id/student_name_view"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -165,13 +154,7 @@
                             android:textColor="#ffffff"
                             android:textSize="18dp" />
 
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_marginStart="12dp"
-                            android:background="@drawable/personal_img_backgraound"
-                            android:padding="7dp"
-                            android:src="@drawable/ic_person_outline_black_24dp" />
+
 
                     </LinearLayout>
 
@@ -214,6 +197,7 @@
                     android:gravity="center">
 
                     <TextView
+                        android:id="@+id/student_health_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"

@@ -2,6 +2,7 @@ package com.example.qartal.Student;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.qartal.R;
+import com.example.qartal.School.SchoolMainProfileActivity;
 import com.example.qartal.models.StudentSessionManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -98,26 +100,53 @@ public class StudenLoginActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void LoginSoGood(final String email, String pass){
-        ReadNiceNameFromFirebase();
-        mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(StudenLoginActivity.this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    session.createLoginSession(studentInfo.FullName, email);
-                    Toast.makeText(getApplicationContext(),"Welcome " + studentInfo.FullName,Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(StudenLoginActivity.this, StudentProfileActivity.class);
-                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(i);
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),"Login Error , Login Again .. ",Toast.LENGTH_LONG).show();
-                    Log.e("Login Faild State : ",task.getException().getMessage());
 
-                }
-            }
-        });
+        ReadNiceNameFromFirebase();
+        mAuth.signInWithEmailAndPassword(email,pass)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(),"Welcome " + studentInfo.FullName,Toast.LENGTH_LONG).show();
+                            studentInfo.Username = email;
+                            session.createLoginSession(studentInfo.FullName, email);
+                            new Handler().postDelayed(new Runnable(){
+                                @Override
+                                public void run() {
+                                    Intent i = new Intent(StudenLoginActivity.this, StudentProfileActivity.class);
+                                    startActivity(i);
+                                }
+                            }, 5000);
+                        }
+
+                        else {
+                            Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
     }
+
+//    private void LoginSoGood(final String email, String pass){
+//        ReadNiceNameFromFirebase();
+//        mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(StudenLoginActivity.this, new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//                if(task.isSuccessful()){
+//                    session.createLoginSession(studentInfo.FullName, email);
+//                    Toast.makeText(getApplicationContext(),"Welcome " + studentInfo.FullName,Toast.LENGTH_LONG).show();
+//                    Intent i = new Intent(StudenLoginActivity.this, StudentProfileActivity.class);
+//                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    startActivity(i);
+//                }
+//                else {
+//                    Toast.makeText(getApplicationContext(),"Login Error , Login Again .. ",Toast.LENGTH_LONG).show();
+//                    Log.e("Login Faild State : ",task.getException().getMessage());
+//
+//                }
+//            }
+//        });
+//    }
 
     @Override
     public void onStart() {
