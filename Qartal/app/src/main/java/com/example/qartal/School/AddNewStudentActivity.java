@@ -29,10 +29,10 @@ public class AddNewStudentActivity extends AppCompatActivity implements View.OnC
     private FirebaseDatabase firebaseInstance;
     private DatabaseReference firebaseDatabase;
     private FirebaseAuth mAuth;
-    private EditText User_FullName , User_BusNo ,
-            User_Age, User_ClassNo , User_BloodType , User_Phone ;
+    private EditText User_FullName  ,
+            User_Age , User_BloodType , User_Phone ;
     private Button banConfirm ;
-    public String  UserID , Full_name , bus_no , class_no , blood_type , phone , age;
+    public String  UserID , Full_name  , blood_type , phone , age;
     StudentInfo studentInfo = new StudentInfo();
 
 
@@ -64,7 +64,7 @@ public class AddNewStudentActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onClick(View v) {
                 AddStudentToFirebase();
-                //Toast.makeText(getApplicationContext(), "Saving Data ..", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Saving Data ..", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -73,8 +73,6 @@ public class AddNewStudentActivity extends AppCompatActivity implements View.OnC
 
     public void AddStudentToFirebase(){
         Full_name = User_FullName.getText().toString();
-        bus_no = User_BusNo.getText().toString();
-        class_no = User_ClassNo.getText().toString();
         blood_type = User_BloodType.getText().toString();
         phone = User_Phone.getText().toString();
         age = User_Age.getText().toString();

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,15 +25,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class HealthStateSchoolActivity extends AppCompatActivity implements View.OnClickListener {
 
     SchoolSessionManager session ;
-//    private RecyclerView health_description_school_r;
-    private DatabaseReference healthRef , StudentRef;
+    private DatabaseReference healthRef ;
     private FirebaseAuth mAuth;
     private String User_id;
-    private String Data;
-    private TextView health_viewer;
+    private String Data ;
+    private TextView health_viewer_1 ;
 
 
     @Override
@@ -45,95 +47,32 @@ public class HealthStateSchoolActivity extends AppCompatActivity implements View
         session.checkLogin();
 
         mAuth = FirebaseAuth.getInstance();
-//        User_id = mAuth.getCurrentUser().getUid();
-//        healthRef = FirebaseDatabase.getInstance().getReference().child("HeathInfo").child(User_id);
-//        StudentRef = FirebaseDatabase.getInstance().getReference().child("StudentInfo");
 
         findViewById(R.id.go_back_student_profile).setOnClickListener(this);
         findViewById(R.id.health_go_recycle).setOnClickListener(this);
 
-//        health_description_school_r = findViewById(R.id.health_recycle_list);
-//        health_description_school_r.setHasFixedSize(true);
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-//        linearLayoutManager.setReverseLayout(true);
-//        linearLayoutManager.setStackFromEnd(true);
 
-        //  DisplayHeathInfo();
+        health_viewer_1 = findViewById(R.id.coming_health_value);
 
-        health_viewer = findViewById(R.id.coming_health_value);
+
+
+
         healthRef = FirebaseDatabase.getInstance().getReference();
         healthRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Data = snapshot.child("irValue").getValue().toString();
-
-                health_viewer.setText(Data);
+                health_viewer_1.setText("BPM : " +Data);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(getApplicationContext(),"Faild To Get BPM",Toast.LENGTH_LONG).show();
             }
         });
 
     }
 
-    /*
-//    HealthState.class,
-//    R.layout.all_user_display_health_layout,
-//    HealthViewHolder.class,
-//    healthRef
-
-    void DisplayHeathInfo(){
-        FirebaseRecyclerAdapter<HealthState,HealthViewHolder> firebaseRecyclerAdapter
-                = new FirebaseRecyclerAdapter<HealthState, HealthViewHolder>() {
-
-            @Override
-            protected void onBindViewHolder(@NonNull final HealthViewHolder holder, int position, @NonNull HealthState model) {
-                String StudentIDs = getRef(position).getKey();
-                StudentRef.child(StudentIDs).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            final String username = snapshot.child("FullName").getValue().toString();
-                            holder.setFullName(username);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-            }
-
-            @NonNull
-            @Override
-            public HealthViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                return null;
-            }
-        };
-    }
-
-    public static class HealthViewHolder extends RecyclerView.ViewHolder{
-
-        View mView;
-
-        public HealthViewHolder(@NonNull View itemView) {
-            super(itemView);
-            mView = itemView;
-        }
-
-        public void setFullName(String fullName){
-            TextView name = mView.findViewById(R.id.health_name_view);
-            name.setText(fullName);
-        }
-        public void setHealthState(String healthState){
-            TextView health_state = mView.findViewById(R.id.health_state_view);
-            health_state.setText(healthState);
-        }
-    }
-    */
     @Override
     public void onClick(View v) {
         switch (v.getId()){
