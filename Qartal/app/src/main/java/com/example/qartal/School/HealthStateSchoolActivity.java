@@ -59,7 +59,7 @@ public class HealthStateSchoolActivity extends AppCompatActivity implements View
         healthRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Data = snapshot.child("irValue").getValue().toString();
+                Data = snapshot.child("HealthInfo").child("BPM").getValue().toString();
                 health_viewer_1.setText("BPM : " +Data);
             }
 

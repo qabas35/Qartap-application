@@ -48,7 +48,7 @@ public class HealthyActivityStateStudent extends AppCompatActivity implements Vi
         healthRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Data = snapshot.child("irValue").getValue().toString();
+                Data = snapshot.child("HealthInfo").child("BPM").getValue().toString();
                 health_viewer_1.setText(Data);
             }
 
